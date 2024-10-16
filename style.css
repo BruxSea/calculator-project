@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.calculator {
+    width: 400px;
+    margin: 50px auto;
+    padding: 10px;
+    background-color: #C0C0C0;
+    border: 2px solid #808080;
+    box-shadow: 4px 4px 0 #000000;
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #090466;
+    padding: 4px 0;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+h1 img {
+    width: 22px;
+    height: auto;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.display {
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    font-size: 20px;
+    text-align: right;
+    color: black;
+    background-color: #ffffff;
+    border-left: 3px solid #000000;
+    border-top: 3px solid #000000;
+    border-right: 3px solid #d3d3d3;
+    border-bottom: 3px solid #d3d3d3;
+    }
+
+    .container {
+        margin-top: 10px;
+        padding: 5px;
+        display: flex;
+        gap: 3px;
+    }
+
+    .container .row{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .container button{
+        
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+        font-weight: bolder;
+        text-align: center;
+        /*padding: 15px; */
+        background-color: #C0C0C0;
+        border-left: 3px solid #d3d3d3;
+        border-top: 3px solid #d3d3d3;
+        border-right: 3px solid #000000;
+        border-bottom: 3px solid #000000;
+        margin: 5px;
+    }
+
+    .container button.number{
+        color: #0000ff;
+    }
+
+    .container button.operator{
+        color: #ff0000;
+    }
+
+    .container button.clean{
+        color: #800000;
+        flex-grow: 2;
+    }
+
+    .container button.equal{
+        height: calc(60px * 2 + 10px);
+        flex-grow: 1;
+    }
+
+    .container .row.special-row{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 3px;
+    }
+
+    
+
+    
+    

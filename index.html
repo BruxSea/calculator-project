@@ -8,37 +8,54 @@
 </head>
 <body>
     <div class="calculator">
-    <h1>CALCULATOR</h1>   
-    <input type="text" class="display" disabled>                                          
+    <h1>
+      <img src="images/calculator-png.png" alt="Calculator Logo">
+      Calculator
+    </h1>  
+
+    <input type="text" class="display" disabled>
+
     <div class="container"> 
-      <div class="row"> 
-        <button class="c" aria-label="Clear">C</button>
-        <button class="e" aria-label="Erase">E</button>
-        <button class="multiply" aria-label="Multiply">*</button>
-        <button class="split" aria-label="Split">/</button>
+      <!-- Primera columna -->
+      <div class="column">
+        <button class="seven number" aria-label="Seven">7</button>
+        <button class="four number" aria-label="Four">4</button>
+        <button class="one number" aria-label="One">1</button>
+        <button class="zero number" aria-label="Zero">0</button>
       </div>
-      <div class="row">   
-        <button class="seven" aria-label="Seven">7</button>
-        <button class="eight" aria-label="Eight">8</button>
-        <button class="nine" aria-label="Nine">9</button>
-        <button class="subtraction" aria-label="Subtraction">-</button>
-      </div> 
-      <div class="row">
-        <button class="four" aria-label="Four">4</button>
-        <button class="five" aria-label="Five">5</button>
-        <button class="six" aria-label="Six">6</button>
-        <button class="add" aria-label="Add">+</button>
+
+      <!-- Segunda columna -->
+      <div class="column">
+        <button class="eight number" aria-label="Eight">8</button>
+        <button class="five number" aria-label="Five">5</button>
+        <button class="two number" aria-label="Two">2</button>
+        <button class="dot number" aria-label="Dot">.</button>
       </div>
-      <div class="row">
-        <button class="one" aria-label="One">1</button>
-        <button class="two" aria-label="Two">2</button>
-        <button class="three" aria-label="Three">3</button>
-      </div>  
-      <div class="row">
-        <button class="equal" aria-label="Equal">=</button>
-        <button class="zero" aria-label="Zero">0</button>
-        <button class="dot" aria-label="Dot">.</button>
+
+      <!-- Tercera columna -->
+      <div class="column">
+        <button class="nine number" aria-label="Nine">9</button>
+        <button class="six number" aria-label="Six">6</button>
+        <button class="three number" aria-label="Three">3</button>
+        
+        
       </div>
+
+      <!-- Cuarta columna -->
+      <div class="column">
+        <button class="split operator" aria-label="Split">/</button>
+        <button class="multiply operator" aria-label="Multiply">*</button>
+        <button class="subtraction operator" aria-label="Subtraction">-</button>
+        <button class="add operator" aria-label="Add">+</button>
+      </div>
+
+      <!-- Quinta columna (opcional para botones especiales como C y E) -->
+      <div class="column">
+        <button class="c clean" aria-label="Clear">C</button>
+        <button class="e clean" aria-label="Erase">E</button>
+        <button class="equal operator" aria-label="Equal">=</button>
+      </div>
+
     </div> 
     </div>
     
