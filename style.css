@@ -76,9 +76,13 @@ h1 img {
     color: #ff0000;
 }
 
+.clean-button{
+    display: flex;
+    width: 100%;
+}
 .buttons button.clean {
     flex: 1 1 100%;
-    max-width: 100%;
+    max-width: 50%;
     background-color: #800000;
     color: #ffffff;
 }
