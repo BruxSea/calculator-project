@@ -1,11 +1,11 @@
 const buttons = document.querySelectorAll('.buttons button');
 const display = document.querySelector('.display');
 
-// Variables to store numbers and operators with the value null so that they are empty at the beginnig
+// Variables to store numbers and operators, initialized to null for empty state at the beginning
 let firstNumber = null;
 let operator = null;
 
-// Functions for operators
+// Functions for arithmetic operations
 function add(a, b){
    return a + b;
 };
@@ -20,7 +20,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0){
-        return "You can't divide by zero";
+        return "Error: You can't divide by zero"; // Error handling for division by zero
     }
     return a / b;
 }
@@ -29,17 +29,34 @@ buttons.forEach(button => {
     button.addEventListener('click', () => {
         const value = button.textContent;
 
-        //si se hace clic en un numero, muestra el numero en el display
-        if (!isNaN(value)) {
-            display.value += value;
+        // If a number is clicked, display it on the screen
+        if (!isNaN(value) || value === ".") {
+            if (value === "." && display.value.includes(".")){
+                return; // Prevent adding multiple decimal points
+            }
+            display.value += value; // Append the value to the display
         }
 
-        //si se hace clic en el =
+        // Check for decimal point input
+        else if (value === ".") {
+            if (!display.value.includes(".")) {
+                display.value += value; // Add the decimal point if not already present
+            }
+        }
+
+        // If the "=" button is clicked
         else if (value === "="){
-            const secondNumber = parseFloat(display.value.split(operator)[1]); //convierte lo que este en la pantalla en numero decimal y tomamos el segundo numero
+            const secondNumber = parseFloat(display.value.split(operator)[1]); // Convert the display value to a decimal number and take the second number
+            
+            // Check if the second number is a valid number
+            if (isNaN(secondNumber)) {
+                display.value = "Error: Missing second number"; // Error message
+                return; // Exit the function to avoid calculations
+            }
+            
             let result;
 
-            //si se hace clic en un operador
+            // Perform the operation based on the selected operator
             switch (operator) {
                 case '+':
                     result = add(firstNumber, secondNumber);
@@ -54,42 +71,44 @@ buttons.forEach(button => {
                         result = divide(firstNumber, secondNumber);
                         break;
                     default:
-                        result = "Error";
+                        result = "Error"; // Default error case
                         break;
                 }
 
-                //muestra el valor en display
+                // Display the result
                 display.value = result;
-                // dejar en null la variable de operator y firstNumber para poder vlver a comenzar
+                // Reset the operator and firstNumber to start fresh
                 firstNumber = null;
                 operator = null;
-            } //HASTA AHORA EL CODIGO SE ENFOCA EN : MANEJAR LOS NUMEROS Y LA OPERACION CUANDO SE HACE CLIC EN EL =
+            } 
+            
+            //If an operator is clicked
             else if (firstNumber === null) {
-                firstNumber = parseFloat(display.value);
-                operator = value;
-                display.value += ` ${operator} `;
+                firstNumber = parseFloat(display.value); // Convert display value to a number
+                operator = value; // Store the operator
+                display.value += ` ${operator} `; // Show the operator in the display
             }
-        } )
-})
+        });
+});
 
-//resetear la calculadora
+// Reset the calculator
 const cleanButtons = document.querySelectorAll('.clean');
 
 cleanButtons.forEach(button => {
     button.addEventListener('click', () => {
         const value = button.textContent;
 
-        //si el boton es C:
+        // If the button is "C":
         if (value === 'C') {
-            display.value = display.value.slice(0, -1);
+            display.value = display.value.slice(0, -1); // Remove the last character from the display
         }
 
-        //si el boton es AC:
+        // If the button is "AC":
         else if (value === 'AC') {
-            display.value = ''; //limpia todo el display
-            firstNumber = null; //reinicio el primer numero
-            operator = null; //reinicio operator
-            secondNumber = null; //reinicio el segundo numero
+            display.value = ''; // Clear the display
+            firstNumber = null; // Reset firstNumber
+            operator = null; // Reset operator
+            // No need to reset secondNumber since it's not a defined variable
         }
     });
 });
